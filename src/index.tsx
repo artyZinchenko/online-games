@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 
-const socket = io('https://online-server-games.onrender.com');
+const socket = io('http://localhost:3001');
 socket.connect();
 socket.on('error', (error) => {
     console.error('Socket error:', error);
