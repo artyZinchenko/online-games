@@ -1,0 +1,9 @@
+.clickable-row {
+    cursor: pointer;
+}
+
+.layout {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}

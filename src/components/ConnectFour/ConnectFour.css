@@ -1,0 +1,127 @@
+h1 {
+    text-align: center;
+    font-size: 50px;
+}
+
+table {
+    margin: 0 auto;
+    border-spacing: 0px 0px;
+}
+
+/* .connect-four {
+    width: 30em;
+    height: 30em;
+} */
+
+.cell {
+    height: 3.2em;
+    width: 3.2em;
+    background-color: #f6f8f590;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 0.2em;
+}
+
+.circle {
+    height: 1em;
+    width: 1em;
+    border: 1px solid #000;
+    border-radius: 100px;
+}
+
+.circles {
+    margin: -40px 0 25px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.red-sm {
+    background-color: rgb(232, 136, 136);
+}
+
+.yellow-sm {
+    background-color: rgb(222, 222, 138);
+}
+
+.message {
+    text-align: center;
+    font-size: 17px;
+}
+
+.white {
+    height: 60px;
+    width: 60px;
+    background-color: #2a3627a1;
+    border-radius: 100px;
+}
+
+.red {
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+    background: radial-gradient(
+        circle,
+        rgb(199, 23, 32),
+        rgba(106, 0, 0, 0.907)
+    );
+    transition: background-color 0.5s;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.red:hover {
+    background: radial-gradient(circle, rgb(255, 7, 7), rgb(60, 1, 1));
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.yellow {
+    height: 60px;
+    width: 60px;
+    border-radius: 100px;
+    transition: background-color 0.5s;
+    background: radial-gradient(
+        circle,
+        rgba(223, 195, 35, 0.996),
+        rgba(151, 121, 0, 0.856)
+    );
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.yellow:hover {
+    background: radial-gradient(circle, rgb(255, 255, 0), rgb(129, 98, 7));
+    transition: background-color 0.5s, color 0.5s;
+}
+
+@media screen and (max-width: 600px) {
+    .cell {
+        height: 2em;
+        width: 2em;
+    }
+    .circle {
+        height: 0.2em;
+        width: 0.2em;
+        border: 1px solid #000;
+        border-radius: 20em;
+    }
+    .red {
+        height: 2em;
+        width: 2em;
+        border-radius: 20em;
+
+        box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.3);
+    }
+    .white {
+        height: 2em;
+        width: 2em;
+        background-color: #2a3627a1;
+        border-radius: 20em;
+    }
+    .yellow {
+        height: 2em;
+        width: 2em;
+        border-radius: 20em;
+        box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.3);
+    }
+}
