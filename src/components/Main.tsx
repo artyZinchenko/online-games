@@ -90,9 +90,11 @@ const Main = ({ socket }: Props) => {
     });
 
     socket.on('opponent_disconnected', () => {
-        setCondition('opponent_disconnected');
-        setGameOver(true);
-        setModalOpen(true);
+        if (isPlaying) {
+            setCondition('opponent_disconnected');
+            setGameOver(true);
+            setModalOpen(true);
+        }
     });
 
     socket.on('opponent_joined', (data) => {
@@ -165,6 +167,7 @@ const Main = ({ socket }: Props) => {
                             player={player}
                             list={list}
                             setList={setList}
+                            setPlayer={setPlayer}
                         />
                     }
                 />

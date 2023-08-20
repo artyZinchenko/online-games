@@ -20,9 +20,17 @@ interface Props {
     player: Player | null;
     setList: React.Dispatch<React.SetStateAction<Game[]>>;
     list: Game[];
+    setPlayer: React.Dispatch<React.SetStateAction<Player | null>>;
 }
 
-const Home = ({ socket, setIsWaiting, player, list, setList }: Props) => {
+const Home = ({
+    socket,
+    setIsWaiting,
+    player,
+    list,
+    setList,
+    setPlayer,
+}: Props) => {
     const [text, setText] = useState('');
     const [username, setUsername] = useState<string | null>(() => {
         if (player?.username) return player.username;
@@ -35,6 +43,7 @@ const Home = ({ socket, setIsWaiting, player, list, setList }: Props) => {
         function saveUsername(event: KeyboardEvent) {
             if (event.key === 'Enter') {
                 setUsername(text);
+                setPlayer({ id: socket.id, username: text });
             }
         }
 
@@ -47,7 +56,12 @@ const Home = ({ socket, setIsWaiting, player, list, setList }: Props) => {
     }, [socket]);
 
     const handleJoinById = (game: Game) => {
-        socket.emit('join_game_byId', game);
+        socket.emit('join_game_byId', {
+            id: game.id,
+            username: game.username,
+            gameName: game.gameName,
+            socketUsername: username,
+        });
         const newList = list.filter((g) => g.id !== game.id);
         setList(newList);
     };
@@ -145,7 +159,10 @@ const Home = ({ socket, setIsWaiting, player, list, setList }: Props) => {
                         id='myInput'
                     />
                     <Button
-                        onClick={() => setUsername(text)}
+                        onClick={() => {
+                            setPlayer({ id: socket.id, username: text });
+                            setUsername(text);
+                        }}
                         variant='contained'
                     >
                         Save username

@@ -3,7 +3,7 @@
 interface Player {
     id?: string;
     username: string;
-    playsX: boolean;
+    playsX?: boolean;
 }
 
 type Board = Array<Array<number | null>>;
